@@ -13,7 +13,11 @@ import platform
 import subprocess
 
 # Incremented on any breaking change to the report document shape below.
-SCHEMA_VERSION = 3
+# v4 added the browser UI benchmark (dev/benchmarks/omnigent_ui): its per-journey
+# blocks carry a ``network`` sub-object (and optional ``browser_timing``)
+# alongside the shared ``runs``/``summary`` latency shape, under
+# ``harness="web-ui-playwright"``. HTTP-benchmark reports are unchanged.
+SCHEMA_VERSION = 4
 
 
 def _git(*args: str) -> str:
